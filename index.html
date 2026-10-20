@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonam Venkata Chalamayya Engineering College</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="college-header">
+        <h1>BONAM VENKATA CHALAMAYYA ENGINEERING COLLEGE</h1>
+    </header>
+
+    <main>
+        <section class="panel">
+            <button class="department-heading" onclick="toggleDepartments()">
+                Department
+            </button>
+
+            <div id="departments" class="items hidden">
+                <button class="department-box" onclick="showDepartment('Civil')">Civil</button>
+                <button class="department-box" onclick="showDepartment('Triple E')">Triple E</button>
+                <button class="department-box" onclick="showDepartment('Mech')">Mech</button>
+                <button class="department-box" onclick="showDepartment('ECE')">ECE</button>
+                <button class="department-box" onclick="showDepartment('CSE')">CSE</button>
+                <button class="department-box allied" onclick="showBranches()">Allied</button>
+            </div>
+        </section>
+
+        <section id="branchesSection" class="panel hidden">
+            <h2 class="branch-heading">Select Your Branch</h2>
+            <div class="items">
+                <button class="branch-box" onclick="showYears('CAD')">CAD</button>
+                <button class="branch-box" onclick="showYears('AIML')">AIML</button>
+                <button class="branch-box" onclick="showYears('CSM')">CSM</button>
+            </div>
+        </section>
+
+        <section id="departmentInfo" class="panel hidden">
+            <h2 id="departmentName"></h2>
+            <p>Select Allied to see CAD, AIML and CSM.</p>
+        </section>
+
+        <section id="yearsSection" class="panel hidden">
+            <h2 id="branchName" class="year-heading"></h2>
+            <div class="items">
+                <button class="year-box" onclick="showOtherYear('2nd Year')">2nd Year</button>
+                <button class="year-box" onclick="showRollNumbers()">3rd Year</button>
+                <button class="year-box" onclick="showOtherYear('4th Year')">4th Year</button>
+            </div>
+        </section>
+
+        <section id="rollSection" class="panel hidden">
+            <h2 class="roll-heading">Third Year Roll Numbers</h2>
+            <p>Choose roll number 8 to see my self-introduction.</p>
+            <div id="rollNumbers" class="items"></div>
+        </section>
+
+        <section id="otherYearSection" class="panel hidden">
+            <h2 id="otherYearName"></h2>
+            <p>Student details will be added here.</p>
+        </section>
+
+        <section id="introSection" class="panel hidden">
+            <div class="intro-card">
+                <h2>Self-Introduction</h2>
+                <p><strong>Name:</strong> Challa Sri Mallika</p>
+                <p><strong>College:</strong> Bonam Venkata Chalamayya Engineering College</p>
+                <p><strong>Branch:</strong> CSE (AI &amp; DS)</p>
+                <p><strong>Year:</strong> 3rd Year</p>
+                <p><strong>Roll Number:</strong> 8</p>
+                <p><strong>Career Goal:</strong> To become a Data Analyst</p>
+                <p>
+                    Hello everyone! My name is Challa Sri Mallika.
+                    I am pursuing B.Tech in Computer Science and Engineering
+                    (Artificial Intelligence and Data Science). I am interested
+                    in Python, data analysis and data science. I enjoy learning
+                    new technologies and improving my skills. My goal is to
+                    become a Data Analyst.
+                </p>
+                <p>Thank you!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>College Department and Student Information Website</footer>
+
+    <!-- Connect JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

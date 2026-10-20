@@ -1,0 +1,207 @@
+
+/* General page style */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 22px;
+    background: #f3f6fc;
+    color: #253047;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* COLLEGE HEADING: red letters */
+.college-header {
+    max-width: 1100px;
+    margin: 10px auto 35px;
+    padding: 28px 18px;
+    background: white;
+    border: 3px solid red;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px #00000012;
+}
+
+.college-header h1 {
+    margin: 0;
+    color: red;
+    font-family: Arial, sans-serif;
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+/* Common content box */
+.panel {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px #00000010;
+}
+
+/* DEPARTMENT: serif font */
+.department-heading {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 10px;
+    background: #183b70;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 22px;
+}
+
+.department-box {
+    padding: 15px 24px;
+    border: 2px solid #9db7f5;
+    border-radius: 8px;
+    background: #e5edff;
+    color: #173c78;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.department-box:hover {
+    background: #cbdcff;
+    transform: translateY(-2px);
+}
+
+.allied {
+    background: #ffe2b8;
+    color: #824500;
+    border-color: #e8ad59;
+}
+
+/* BRANCHES: rounded, modern font */
+.branch-heading {
+    color: #087f70;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 27px;
+}
+
+.branch-box {
+    min-width: 115px;
+    padding: 17px 26px;
+    border: 2px solid #72cbbb;
+    border-radius: 14px;
+    background: #d9f8ed;
+    color: #086858;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.branch-box:hover {
+    background: #b9efdf;
+}
+
+/* YEARS: bold Georgia font */
+.year-heading {
+    color: #a14c08;
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.year-box {
+    padding: 17px 24px;
+    border: 2px solid #f1b76c;
+    border-radius: 6px;
+    background: #fff0d9;
+    color: #8b4100;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.year-box:hover {
+    background: #ffdfae;
+}
+
+/* ROLL NUMBERS: monospace font */
+.roll-heading {
+    color: #7040a5;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.roll-box {
+    width: 53px;
+    height: 48px;
+    border: 1px solid #c8a9ec;
+    border-radius: 9px;
+    background: #f0e5ff;
+    color: #603494;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.roll-box:hover {
+    background: #d9c2fa;
+    border-color: #7040a5;
+}
+
+/* SELF-INTRODUCTION: different font and green theme */
+.intro-card {
+    padding: 25px;
+    border: 2px solid #29965b;
+    border-radius: 15px;
+    background: #eafff1;
+    color: #234b35;
+    font-family: "Trebuchet MS", sans-serif;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.intro-card h2 {
+    color: #14753d;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+footer {
+    margin: 35px 0 15px;
+    color: #68758a;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .panel {
+        padding: 17px 12px;
+    }
+
+    .department-box,
+    .branch-box,
+    .year-box {
+        padding: 13px 17px;
+    }
+}
