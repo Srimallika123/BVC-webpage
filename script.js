@@ -1,84 +1,101 @@
 
-function hideSections() {
-    const sectionIds = [
-        "branchesSection",
-        "departmentInfo",
-        "yearsSection",
-        "rollSection",
-        "otherYearSection",
-        "introSection"
-    ];
+let selectedDepartment = "";
+let selectedBranch = "";
+let selectedYear = 0;
 
-    sectionIds.forEach(function(id) {
-        document.getElementById(id).classList.add("hidden");
-    });
+function hideAllSections() {
+    document.getElementById("allied-section").hidden = true;
+    document.getElementById("year-section").hidden = true;
+    document.getElementById("roll-section").hidden = true;
+    document.getElementById("profile-section").hidden = true;
+    document.getElementById("message").textContent = "";
 }
 
-function toggleDepartments() {
-    document.getElementById("departments").classList.toggle("hidden");
+function selectMainDepartment(department) {
+    hideAllSections();
+    selectedDepartment = department;
+    selectedBranch = "";
+    selectedYear = 0;
+
+    if (department === "Allied") {
+        document.getElementById("allied-section").hidden = false;
+        document.getElementById("message").textContent =
+            "Choose CAD, AML, or CSM.";
+    } else {
+        document.getElementById("message").textContent =
+            department + " selected. Student profile details are not available here.";
+    }
 }
 
-function showDepartment(name) {
-    hideSections();
+function selectAlliedBranch(branch) {
+    hideAllSections();
+    selectedBranch = branch;
 
-    document.getElementById("departmentName").textContent =
-        name + " Department";
+    if (branch !== "CAD") {
+        document.getElementById("message").textContent =
+            branch + " selected. The personal introduction is available only under CAD, Third Year, Roll Number 8.";
+        return;
+    }
 
-    document.getElementById("departmentInfo").classList.remove("hidden");
+    document.getElementById("year-section").hidden = false;
+    document.getElementById("year-heading").textContent =
+        "CAD - Select Academic Year";
+
+    document.getElementById("message").textContent =
+        "Choose your academic year.";
 }
 
-function showBranches() {
-    hideSections();
-    document.getElementById("branchesSection").classList.remove("hidden");
-}
+function selectYear(year) {
+    hideAllSections();
+    selectedYear = year;
 
-function showYears(branch) {
-    hideSections();
+    if (selectedBranch !== "CAD" || year !== 3) {
+        document.getElementById("message").textContent =
+            "The personal introduction is available only for CAD, Third Year, Roll Number 8.";
+        return;
+    }
 
-    document.getElementById("branchName").textContent =
-        branch + " - Select Year";
+    document.getElementById("roll-section").hidden = false;
 
-    document.getElementById("yearsSection").classList.remove("hidden");
-}
-
-function showOtherYear(year) {
-    hideSections();
-
-    document.getElementById("otherYearName").textContent = year;
-    document.getElementById("otherYearSection").classList.remove("hidden");
-}
-
-function showRollNumbers() {
-    hideSections();
-
-    const section = document.getElementById("rollSection");
-    const container = document.getElementById("rollNumbers");
-
-    container.replaceChildren();
+    const rollGrid = document.getElementById("roll-grid");
+    rollGrid.innerHTML = "";
 
     for (let number = 1; number <= 71; number++) {
         const button = document.createElement("button");
-
-        button.type = "button";
-        button.className = "roll-box";
-        button.textContent = number;
-        button.setAttribute("aria-label", "Roll number " + number);
-
-        button.addEventListener("click", function() {
-            if (number === 8) {
-                showIntroduction();
-            } else {
-                alert("You selected roll number " + number);
-            }
+        button.className = "roll";
+        button.textContent = "Roll Number " + number;
+        button.addEventListener("click", function () {
+            selectRollNumber(number);
         });
 
-        container.appendChild(button);
+        rollGrid.appendChild(button);
     }
 
-    section.classList.remove("hidden");
+    document.getElementById("message").textContent =
+        "Select your roll number.";
 }
 
-function showIntroduction() {
-    hideSections();
-    document.getElementById("introSection").classList.remove("hidden");
+function selectRollNumber(number) {
+    document.getElementById("profile-section").hidden = true;
+
+    if (
+        selectedDepartment === "Allied" &&
+        selectedBranch === "CAD" &&
+        selectedYear === 3 &&
+        number === 8
+    ) {
+        document.getElementById("roll-section").hidden = true;
+        document.getElementById("profile-section").hidden = false;
+        document.getElementById("message").textContent = "";
+    } else {
+        document.getElementById("message").textContent =
+            "No personal introduction is available for this selection.";
+    }
+}
+
+function goBackToRollNumbers() {
+    document.getElementById("profile-section").hidden = true;
+    document.getElementById("roll-section").hidden = false;
+    document.getElementById("message").textContent =
+        "Select a roll number.";
 }

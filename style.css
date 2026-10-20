@@ -1,207 +1,262 @@
 
-/* General page style */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 22px;
-    background: #f3f6fc;
-    color: #253047;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #eef5ff, #fff5eb, #f0fff4);
+    color: #263238;
+    line-height: 1.7;
 }
 
-/* COLLEGE HEADING: red letters */
 .college-header {
-    max-width: 1100px;
-    margin: 10px auto 35px;
-    padding: 28px 18px;
-    background: white;
-    border: 3px solid red;
-    border-radius: 15px;
-    box-shadow: 0 5px 18px #00000012;
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(120deg, #e8f3ff, #ffffff, #fff0e6);
+    border-bottom: 5px solid #13a89e;
 }
 
 .college-header h1 {
-    margin: 0;
     color: red;
-    font-family: Arial, sans-serif;
-    font-size: clamp(22px, 4vw, 38px);
-    font-weight: 900;
-    letter-spacing: 1px;
-    line-height: 1.4;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Common content box */
-.panel {
-    max-width: 850px;
-    margin: 25px auto;
-    padding: 25px;
+.college-header p {
+    color: #263b70;
+    font-size: 17px;
+}
+
+.college-header .welcome {
+    color: #9c4d16;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 30px auto;
+}
+
+.intro,
+.department-section,
+.content-section,
+.profile-section {
     background: white;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px #00000010;
+    padding: 25px;
+    margin-bottom: 28px;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(31, 54, 82, 0.10);
 }
 
-/* DEPARTMENT: serif font */
-.department-heading {
-    padding: 15px 35px;
+h2 {
+    color: #173b70;
+    font-family: Georgia, "Times New Roman", serif;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    margin-bottom: 20px;
+}
+
+.department-grid,
+.branch-grid,
+.year-grid,
+.roll-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+button {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    cursor: pointer;
     border: none;
-    border-radius: 10px;
-    background: #183b70;
-    color: white;
-    font-family: Georgia, serif;
-    font-size: 25px;
+    border-radius: 12px;
+    padding: 17px 15px;
+    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.items {
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.15);
+}
+
+.department {
+    min-height: 125px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 13px;
-    margin-top: 22px;
+    gap: 8px;
 }
 
-.department-box {
-    padding: 15px 24px;
-    border: 2px solid #9db7f5;
-    border-radius: 8px;
-    background: #e5edff;
-    color: #173c78;
-    font-family: Georgia, serif;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+.department-icon {
+    font-size: 30px;
 }
 
-.department-box:hover {
-    background: #cbdcff;
-    transform: translateY(-2px);
+.civil {
+    background: #f4d7b5;
+    color: #75421d;
+}
+
+.eee {
+    background: #fff0a8;
+    color: #775400;
+}
+
+.ece {
+    background: #c8f2ed;
+    color: #075b57;
+}
+
+.cse {
+    background: #d9e7ff;
+    color: #193f83;
 }
 
 .allied {
-    background: #ffe2b8;
-    color: #824500;
-    border-color: #e8ad59;
+    background: #ead9ff;
+    color: #623b91;
 }
 
-/* BRANCHES: rounded, modern font */
-.branch-heading {
-    color: #087f70;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 27px;
+.content-section {
+    border-top: 5px solid #13a89e;
 }
 
-.branch-box {
-    min-width: 115px;
-    padding: 17px 26px;
-    border: 2px solid #72cbbb;
-    border-radius: 14px;
-    background: #d9f8ed;
-    color: #086858;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
+.branch {
+    color: white;
+    min-height: 65px;
+    font-size: 19px;
 }
 
-.branch-box:hover {
-    background: #b9efdf;
+.cad {
+    background: #2457a7;
 }
 
-/* YEARS: bold Georgia font */
-.year-heading {
-    color: #a14c08;
-    font-family: Georgia, serif;
-    font-size: 27px;
+.aml {
+    background: #7848a8;
 }
 
-.year-box {
-    padding: 17px 24px;
-    border: 2px solid #f1b76c;
-    border-radius: 6px;
-    background: #fff0d9;
-    color: #8b4100;
-    font-family: Georgia, serif;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+.csm {
+    background: #138a83;
 }
 
-.year-box:hover {
-    background: #ffdfae;
+.year {
+    color: white;
 }
 
-/* ROLL NUMBERS: monospace font */
-.roll-heading {
-    color: #7040a5;
-    font-family: "Trebuchet MS", sans-serif;
+.second {
+    background: #df8b35;
 }
 
-.roll-box {
-    width: 53px;
-    height: 48px;
-    border: 1px solid #c8a9ec;
-    border-radius: 9px;
-    background: #f0e5ff;
-    color: #603494;
-    font-family: "Courier New", monospace;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
+.third {
+    background: #287bcb;
 }
 
-.roll-box:hover {
-    background: #d9c2fa;
-    border-color: #7040a5;
+.fourth {
+    background: #26866d;
 }
 
-/* SELF-INTRODUCTION: different font and green theme */
-.intro-card {
-    padding: 25px;
-    border: 2px solid #29965b;
-    border-radius: 15px;
-    background: #eafff1;
-    color: #234b35;
-    font-family: "Trebuchet MS", sans-serif;
-    line-height: 1.8;
-    text-align: left;
+.roll {
+    background: #e9f1ff;
+    color: #214d86;
+    border: 1px solid #c8d9f2;
+    padding: 12px;
 }
 
-.intro-card h2 {
-    color: #14753d;
-    font-family: Georgia, serif;
+.profile-section {
+    border-top: 6px solid #13a89e;
+}
+
+.profile-banner {
+    background: linear-gradient(120deg, #142b50, #087f8c);
+    color: white;
     text-align: center;
+    padding: 25px 15px;
+    border-radius: 14px;
+    margin-bottom: 22px;
 }
 
-/* Utility classes */
-.hidden {
-    display: none !important;
+.profile-banner h2,
+.profile-banner p {
+    color: white;
+}
+
+.profile-card {
+    background: #f3f8ff;
+    border-left: 5px solid #13a89e;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.profile-card h3 {
+    color: #173b70;
+    font-family: Georgia, "Times New Roman", serif;
+    margin-bottom: 12px;
+}
+
+.profile-card p {
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.profile-ending {
+    color: #087f70;
+    font-weight: bold;
+}
+
+.back-button {
+    background: #173b70;
+    color: white;
+    margin-top: 20px;
+}
+
+.message {
+    color: #a23d22;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
 }
 
 footer {
-    margin: 35px 0 15px;
-    color: #68758a;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    text-align: center;
+    background: #142b50;
+    color: white;
+    padding: 25px 15px;
+    margin-top: 35px;
 }
 
-/* Mobile-friendly layout */
+footer p {
+    margin: 4px 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
 @media (max-width: 600px) {
-    body {
-        padding: 12px;
+    .container {
+        width: 94%;
     }
 
-    .panel {
-        padding: 17px 12px;
+    .intro,
+    .department-section,
+    .content-section,
+    .profile-section {
+        padding: 18px;
     }
 
-    .department-box,
-    .branch-box,
-    .year-box {
-        padding: 13px 17px;
+    .profile-card p {
+        text-align: left;
     }
 }

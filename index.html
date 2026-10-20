@@ -4,92 +4,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Bonam Venkata Chalamayya Engineering College</title>
 
-    <!-- Connect CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="college-header">
-        <h1>BONAM VENKATA CHALAMAYYA ENGINEERING COLLEGE</h1>
+        <h1>Bonam Venkata Chalamayya Engineering College</h1>
+        <p>Odalarevu, Andhra Pradesh</p>
+        <p class="welcome">Welcome to Our College Webpage</p>
     </header>
 
-    <main>
-        <section class="panel">
-            <button class="department-heading" onclick="toggleDepartments()">
-                Department
-            </button>
+    <main class="container">
 
-            <div id="departments" class="items hidden">
-                <button class="department-box" onclick="showDepartment('Civil')">Civil</button>
-                <button class="department-box" onclick="showDepartment('Triple E')">Triple E</button>
-                <button class="department-box" onclick="showDepartment('Mech')">Mech</button>
-                <button class="department-box" onclick="showDepartment('ECE')">ECE</button>
-                <button class="department-box" onclick="showDepartment('CSE')">CSE</button>
-                <button class="department-box allied" onclick="showBranches()">Allied</button>
+        <section class="intro">
+            <h2>Explore Our College</h2>
+            <p>
+                Welcome to Bonam Venkata Chalamayya Engineering College.
+                Select a department below to explore its branches, academic
+                years, and student information.
+            </p>
+        </section>
+
+        <section class="department-section">
+            <h2>Our Departments</h2>
+            <p class="section-description">
+                Select your department to continue.
+            </p>
+
+            <div class="department-grid">
+                <button class="department civil"
+                    onclick="selectMainDepartment('Civil Engineering')">
+                    <span class="department-icon">🏗️</span>
+                    <span>Civil Engineering</span>
+                </button>
+
+                <button class="department eee"
+                    onclick="selectMainDepartment('EEE')">
+                    <span class="department-icon">⚡</span>
+                    <span>Electrical and Electronics Engineering (EEE)</span>
+                </button>
+
+                <button class="department ece"
+                    onclick="selectMainDepartment('ECE')">
+                    <span class="department-icon">📡</span>
+                    <span>Electronics and Communication Engineering (ECE)</span>
+                </button>
+
+                <button class="department cse"
+                    onclick="selectMainDepartment('CSE')">
+                    <span class="department-icon">💻</span>
+                    <span>Computer Science and Engineering (CSE)</span>
+                </button>
+
+                <button class="department allied"
+                    onclick="selectMainDepartment('Allied')">
+                    <span class="department-icon">🎓</span>
+                    <span>Allied Department</span>
+                </button>
             </div>
         </section>
 
-        <section id="branchesSection" class="panel hidden">
-            <h2 class="branch-heading">Select Your Branch</h2>
-            <div class="items">
-                <button class="branch-box" onclick="showYears('CAD')">CAD</button>
-                <button class="branch-box" onclick="showYears('AIML')">AIML</button>
-                <button class="branch-box" onclick="showYears('CSM')">CSM</button>
+        <section id="allied-section" class="content-section" hidden>
+            <h2>Allied Department Branches</h2>
+            <p>Select your branch.</p>
+
+            <div class="branch-grid">
+                <button class="branch cad"
+                    onclick="selectAlliedBranch('CAD')">
+                    CAD
+                </button>
+
+                <button class="branch aml"
+                    onclick="selectAlliedBranch('AML')">
+                    AML
+                </button>
+
+                <button class="branch csm"
+                    onclick="selectAlliedBranch('CSM')">
+                    CSM
+                </button>
             </div>
         </section>
 
-        <section id="departmentInfo" class="panel hidden">
-            <h2 id="departmentName"></h2>
-            <p>Select Allied to see CAD, AIML and CSM.</p>
-        </section>
+        <section id="year-section" class="content-section" hidden>
+            <h2 id="year-heading">Select Academic Year</h2>
+            <p>Choose your year of study.</p>
 
-        <section id="yearsSection" class="panel hidden">
-            <h2 id="branchName" class="year-heading"></h2>
-            <div class="items">
-                <button class="year-box" onclick="showOtherYear('2nd Year')">2nd Year</button>
-                <button class="year-box" onclick="showRollNumbers()">3rd Year</button>
-                <button class="year-box" onclick="showOtherYear('4th Year')">4th Year</button>
+            <div class="year-grid">
+                <button class="year second"
+                    onclick="selectYear(2)">
+                    Second Year
+                </button>
+
+                <button class="year third"
+                    onclick="selectYear(3)">
+                    Third Year
+                </button>
+
+                <button class="year fourth"
+                    onclick="selectYear(4)">
+                    Fourth Year
+                </button>
             </div>
         </section>
 
-        <section id="rollSection" class="panel hidden">
-            <h2 class="roll-heading">Third Year Roll Numbers</h2>
-            <p>Choose roll number 8 to see my self-introduction.</p>
-            <div id="rollNumbers" class="items"></div>
+        <section id="roll-section" class="content-section" hidden>
+            <h2>Student Roll Numbers</h2>
+            <p>Select a roll number.</p>
+
+            <div id="roll-grid" class="roll-grid"></div>
         </section>
 
-        <section id="otherYearSection" class="panel hidden">
-            <h2 id="otherYearName"></h2>
-            <p>Student details will be added here.</p>
-        </section>
+        <section id="profile-section" class="profile-section" hidden>
+            <div class="profile-banner">
+                <h2>Student Self-Introduction</h2>
+                <p>Third Year | CAD | Roll Number 8</p>
+            </div>
 
-        <section id="introSection" class="panel hidden">
-            <div class="intro-card">
-                <h2>Self-Introduction</h2>
-                <p><strong>Name:</strong> Challa Sri Mallika</p>
-                <p><strong>College:</strong> Bonam Venkata Chalamayya Engineering College</p>
-                <p><strong>Branch:</strong> CSE (AI &amp; DS)</p>
-                <p><strong>Year:</strong> 3rd Year</p>
-                <p><strong>Roll Number:</strong> 8</p>
-                <p><strong>Career Goal:</strong> To become a Data Analyst</p>
+            <div class="profile-card">
+                <h3>Hello Everyone!</h3>
+
                 <p>
-                    Hello everyone! My name is Challa Sri Mallika.
-                    I am pursuing B.Tech in Computer Science and Engineering
-                    (Artificial Intelligence and Data Science). I am interested
-                    in Python, data analysis and data science. I enjoy learning
-                    new technologies and improving my skills. My goal is to
-                    become a Data Analyst.
+                    My name is <strong>Challa Sri Mallika</strong>.
+                    I am currently pursuing my third year of B.Tech in
+                    Computer Science and Engineering (Artificial Intelligence
+                    and Data Science) at
+                    <strong>Bonam Venkata Chalamayya Engineering College,
+                    Odalarevu</strong>.
                 </p>
-                <p>Thank you!</p>
+
+                <p>
+                    I am interested in technology, programming, data analysis,
+                    and data science. My career goal is to become a Data
+                    Analyst and develop the technical skills needed to solve
+                    real-world problems using data.
+                </p>
+
+                <p>
+                    I am learning Python and C programming and improving my
+                    problem-solving skills through regular practice. I believe
+                    in understanding concepts clearly, learning from mistakes,
+                    and improving my knowledge step by step.
+                </p>
+
+                <p>
+                    My strengths include being self-motivated, responsible,
+                    a quick learner, and willing to learn new things. I also
+                    value communication, teamwork, and time management.
+                </p>
+
+                <p>
+                    My hobbies include listening to music and playing games.
+                    I want to continue learning, gain practical experience,
+                    and build a successful career in the field of data science.
+                </p>
+
+                <p class="profile-ending">
+                    Thank you for visiting my profile!
+                </p>
             </div>
+
+            <button class="back-button" onclick="goBackToRollNumbers()">
+                Back to Roll Numbers
+            </button>
         </section>
+
+        <p id="message" class="message" aria-live="polite"></p>
+
     </main>
 
-    <footer>College Department and Student Information Website</footer>
+    <footer>
+        <p>
+            © 2026 Bonam Venkata Chalamayya Engineering College
+        </p>
+        <p>Designed with creativity and learning.</p>
+    </footer>
 
-    <!-- Connect JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
